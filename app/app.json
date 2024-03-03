@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "expo-auth",
+    "slug": "expo-auth",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.tofiedlp1.expoauth"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "experiments": {
+      "tsconfigPaths": true
+    },
+    "plugins": [["expo-notifications"]],
+    "extra": {
+      "eas": {
+        "projectId": "8cb39e94-b17d-4b6d-9ad5-2f15aeadd7b6"
+      }
+    }
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "translation": {
+    "welcome": {
+      "title": "Welcome to the new version of the app"
+    },
+    "login": {
+      "title": "Login",
+      "subtitle": "Please enter your email and password",
+      "email": "Email",
+      "password": "Password",
+      "loginButton": "Login",
+      "signupButton": "Create an account",
+      "forgotPassword": "Forgot password?"
+    },
+    "logout": {
+      "title": "Logout",
+      "subtitle": "Are you sure you want to logout?",
+      "confirmButton": "Yes",
+      "cancelButton": "No"
+    },
+    "register": {
+      "title": "Create an account",
+      "subtitle": "Please enter your information",
+      "name": "First name",
+      "lastname": "Last name",
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "registerButton": "Create",
+      "loginButton": "Login"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "subtitle": "Please enter your email",
+      "email": "Email",
+      "sendButton": "Send"
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "subtitle": "Please enter your new password",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "resetButton": "Reset"
+    },
+    "users": {
+      "title": "Users",
+      "subtitle": "List of users",
+      "noData": "No data available",
+      "columnsText": "Columns",
+      "filterText": "Filter emails..."
+    },
+    "roles": {
+      "title": "Roles",
+      "subtitle": "List of roles",
+      "noData": "No data available",
+      "columnsText": "Columns",
+      "filterText": "Filter names..."
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Welcome to the dashboard"
+    },
+    "about": {
+      "title": "About",
+      "subtitle": "This is a simple app to manage users and roles"
+    },
+    "profile": {
+      "title": "Profile",
+      "email": "Email",
+      "name": "Name",
+      "lastname": "Lastname",
+      "username": "Username",
+      "buttonUpdate": "Update data",
+      "buttonUpdateAvatar": "Update avatar",
+      "titleAvatar": "Avatar",
+      "subtitleAvatar": "Please select a new avatar",
+      "buttonSaveAvatar": "Save avatar"
+    },
+    "permissions": {
+      "title": "",
+      "content": ""
+    },
+    "navbar": {
+      "home": "Home",
+      "about": "About",
+      "admin": "Admin Panel"
+    },
+    "sidebarAdmin": {
+      "dashboard": "Dashboard",
+      "users": "Users",
+      "roles": "Roles",
+      "blocked": "Blocked IP",
+      "audits": "Audit Trails",
+      "notifications": "Notifications"
+    },
+    "home": {
+      "title": "Home"
+    },
+    "user": {
+      "email": "Email",
+      "name": "Name",
+      "lastname": "Lastname",
+      "username": "Username",
+      "updateUser": "Update User",
+      "banUser": "Ban User",
+      "unbanUser": "Unban User",
+      "roleActual": "Actual Role",
+      "buttonUpdate": "Update data",
+      "role": "Role"
+    },
+    "role": {
+      "subtitle": "Permissions",
+      "buttonUpdate": "Update role",
+      "buttonDelete": "Delete role",
+      "task": {
+        "title": "Tasks",
+        "create": "Create",
+        "read": "Read",
+        "update": "Update",
+        "delete": "Delete",
+        "manage": "Manage"
+      },
+      "user": {
+        "title": "Users",
+        "read": "Read",
+        "update": "Update",
+        "delete": "Delete"
+      },
+      "role": {
+        "title": "Roles",
+        "create": "Create",
+        "read": "Read",
+        "update": "Update",
+        "delete": "Delete"
+      },
+      "blocked": {
+        "title": "Blocked IPs",
+        "read": "Read",
+        "create": "Block",
+        "delete": "Unblock"
+      },
+      "audits": {
+        "title": "Audit Trails",
+        "read": "Read"
+      },
+      "notifications": {
+        "title": "Notifications",
+        "create": "Send Notification",
+        "subtitle": "Send notifications to users"
+      },
+      "admin": "Full access"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "subtitle": "Send Notification",
+      "create": "Send"
+    },
+    "tableOptions": {
+      "rowsPerPageText": "Rows per page",
+      "rowsText": "Rows",
+      "ofText": "of",
+      "allText": "All",
+      "hide": "Hide",
+      "selected": "rows selected",
+      "page": "Page"
+    },
+    "createRole": {
+      "buttonOpenModal": "Create Role",
+      "name": "Name",
+      "createButton": "Create"
+    },
+    "toast": {
+      "success": {
+        "updateAvatar": "Avatar updated successfully",
+        "updateProfile": "Profile updated successfully",
+        "updateRole": "Role updated successfully",
+        "deleteRole": "Role deleted successfully",
+        "createRole": "Role created successfully",
+        "updateUser": "User updated successfully",
+        "banUser": "User banned successfully",
+        "unbanUser": "User unbaned successfully",
+        "preRegister": "A code was sent to your email valid for 5 minutes!",
+        "login": "Login successful and redirecting...",
+        "logout": "Logout successful and redirecting...",
+        "register": "User created successfully and redirecting...",
+        "forgotPassword": "Email sent successfully",
+        "resetPassword": "Password reset successfully and redirecting...",
+        "unBlockedIp": "IP unblocked successfully",
+        "blockedIp": "IP blocked successfully"
+      },
+      "error": {
+        "updateAvatar": "Error updating avatar",
+        "updateProfile": "Error updating profile",
+        "updateRole": "Error updating role",
+        "deleteRole": "Error deleting role",
+        "createRole": "Error creating role",
+        "updateUser": "Error updating user",
+        "banUser": "Error banning user",
+        "unbanUser": "Error unbaning user",
+        "login": "Error logging in",
+        "logout": "Error logging out",
+        "register": "Error creating user",
+        "forgotPassword": "Error sending email",
+        "resetPassword": "Error resetting password",
+        "unBlockedIp": "Error unblocking IP",
+        "blockedIp": "Error blocking IP"
+      },
+      "unauthorize": "You are not authorized to access this page",
+      "errorServer": "Error connecting to the server"
+    },
+    "blockedIps": {
+      "title": "Blocked IP",
+      "subtitle": "List of blocked IP",
+      "noData": "No data available",
+      "columnsText": "Columns",
+      "filterText": "Filter IP..."
+    },
+    "blockedIp": {
+      "buttonOpenModal": "Create Blocked IP",
+      "ip": "IP",
+      "reason": "Reason",
+      "blockedButton": "Blocked"
+    },
+    "auditTrails": {
+      "title": "Audit Trails",
+      "subtitle": "List of audit trails",
+      "noData": "No data available",
+      "columnsText": "Columns",
+      "filterText": "Filter..."
+    },
+    "blocked": {
+      "title": "Blocked IP",
+      "subtitle": "Are you sure you want to block this IP?",
+      "confirmButton": "Yes",
+      "cancelButton": "No",
+      "buttonDelete": "Unblock"
+    }
+  }
+}

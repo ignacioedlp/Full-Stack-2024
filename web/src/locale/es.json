@@ -1,0 +1,237 @@
+{
+  "translation": {
+    "welcome": {
+      "title": "Bienvenido a una app increible!",
+      "content": ""
+    },
+    "login": {
+      "title": "Iniciar sesion",
+      "subtitle": "Ingresa tus datos para iniciar sesion",
+      "email": "Correo electronico",
+      "password": "Contraseña",
+      "loginButton": "Iniciar sesion",
+      "signupButton": "Crear una cuenta",
+      "forgotPassword": "Olvidaste tu contraseña?"
+    },
+    "logout": {
+      "title": "Cerrar sesion",
+      "subtitle": "Estas seguro que deseas cerrar sesion?",
+      "confirmButton": "Si",
+      "cancelButton": "No"
+    },
+    "register": {
+      "title": "Registro",
+      "subtitle": "Ingresa tus datos para crear una cuenta",
+      "name": "Nombre",
+      "lastname": "Apellido",
+      "username": "Nombre de usuario",
+      "email": "Correo electronico",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "registerButton": "Registrarse",
+      "loginButton": "Ya tengo cuenta"
+    },
+    "forgotPassword": {
+      "title": "Olvidaste tu contraseña?",
+      "subtitle": "Ingresa tu correo electronico para recuperar tu contraseña",
+      "email": "Correo electronico",
+      "sendButton": "Enviar"
+    },
+    "resetPassword": {
+      "title": "Restablecer contraseña",
+      "subtitle": "Ingresa tu nueva contraseña",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "resetButton": "Restablecer"
+    },
+    "users": {
+      "title": "Usuarios",
+      "subtitle": "Aqui puedes ver todos los usuarios",
+      "noData": "No hay usuarios",
+      "columnsText": "Columnas",
+      "filterText": "Filtra usuarios por emails..."
+    },
+    "roles": {
+      "title": "Roles",
+      "subtitle": "Aqui puedes ver todos los roles",
+      "noData": "No hay roles",
+      "columnsText": "Columnas",
+      "filterText": "Filtra roles por nombre..."
+    },
+    "about": {
+      "title": "Sobre Nosotros",
+      "subtitle": "Aqui puedes ver informacion sobre nosotros"
+    },
+    "dashboard": {
+      "title": "Panel de administracion",
+      "subtitle": "Bienvenido al panel de administracion"
+    },
+    "profile": {
+      "title": "Perfil",
+      "email": "Correo electronico",
+      "name": "Nombre",
+      "lastname": "Apellido",
+      "username": "Nombre de usuario",
+      "buttonUpdate": "Actualizar datos",
+      "buttonUpdateAvatar": "Actualizar foto",
+      "titleAvatar": "Foto de perfil",
+      "subtitleAvatar": "Sube una foto de perfil",
+      "buttonSaveAvatar": "Guardar foto"
+    },
+    "permissions": {
+      "title": "",
+      "content": ""
+    },
+    "navbar": {
+      "home": "Inicio",
+      "about": "Sobre Nosotros",
+      "admin": "Panel de administracion"
+    },
+    "sidebarAdmin": {
+      "dashboard": "Panel",
+      "users": "Usuarios",
+      "roles": "Roles",
+      "blocked": "IPs bloqueadas",
+      "audits": "Auditorias",
+      "notifications": "Notificaciones"
+    },
+    "home": {
+      "title": "Inicio"
+    },
+    "user": {
+      "email": "Correo electronico",
+      "name": "Nombre",
+      "lastname": "Apellido",
+      "username": "Nombre de usuario",
+      "updateUser": "Actualizar usuario",
+      "banUser": "Banear usuario",
+      "unbanUser": "Desbanear usuario",
+      "roleActual": "Rol actual",
+      "buttonUpdate": "Actualizar usuario",
+      "role": "Rol"
+    },
+    "role": {
+      "subtitle": "Permisos",
+      "buttonUpdate": "Actualizar rol",
+      "buttonDelete": "Eliminar rol",
+      "task": {
+        "title": "Tareas",
+        "create": "Crear",
+        "read": "Leer",
+        "update": "Actualizar",
+        "delete": "Eliminar",
+        "manage": "Administrar"
+      },
+      "user": {
+        "title": "Usuarios",
+        "read": "Leer",
+        "update": "Actualizar",
+        "delete": "Bloquear"
+      },
+      "role": {
+        "title": "Roles",
+        "create": "Crear",
+        "read": "Leer",
+        "update": "Actualizar",
+        "delete": "Eliminar"
+      },
+      "blocked": {
+        "title": "IPs bloqueadas",
+        "read": "Leer",
+        "create": "Bloquear",
+        "delete": "Desbloquear"
+      },
+      "audits": {
+        "title": "Auditorias",
+        "read": "Leer"
+      },
+      "notifications": {
+        "title": "Notificationes",
+        "subtitle": "Envia notificaciones a los usuarios",
+        "create": "Enviar notificaciones"
+      },
+      "admin": "Acceso completo"
+    },
+    "notifications": {
+      "title": "Notificationes",
+      "subtitle": "Envia notificaciones a los usuarios",
+      "create": "Enviar"
+    },
+    "tableOptions": {
+      "rowsPerPageText": "Filas por pagina",
+      "rowsText": "Filas",
+      "ofText": "de",
+      "allText": "Todos",
+      "hide": "Ocultar",
+      "selected": "filas seleccionadas",
+      "page": "Pagina"
+    },
+    "createRole": {
+      "buttonOpenModal": "Crear Rol",
+      "name": "Nombre",
+      "createButton": "Crear"
+    },
+    "toast": {
+      "success": {
+        "updateAvatar": "Imagen de perfil actualizada",
+        "updateProfile": "Perfil actualizado",
+        "updateRole": "Rol actualizado",
+        "deleteRole": "Rol eliminado",
+        "createRole": "Rol creado",
+        "updateUser": "Usuario actualizado",
+        "banUser": "Usuario baneado",
+        "unbanUser": "Usuario desbaneado",
+        "preRegister": "Se envio un codigo a tu email valido por 5 minutos!",
+        "login": "Inicio de sesion exitoso y redireccionando...",
+        "logout": "Cierre de sesion exitoso y redireccionando...",
+        "register": "Usuario creado exitosamente y redireccionando...",
+        "forgotPassword": "Correo enviado exitosamente y redireccionando...",
+        "resetPassword": "Contraseña restablecida exitosamente y redireccionando...",
+        "unBlockedIp": "IP desbloqueada",
+        "blockedIp": "IP bloqueada"
+      },
+      "error": {
+        "updateAvatar": "Error al actualizar imagen de perfil",
+        "updateProfile": "Error actualizando perfil",
+        "updateRole": "Error actualizando rol",
+        "deleteRole": "Error eliminando rol",
+        "createRole": "Error creando rol",
+        "updateUser": "Error actualizando usuario",
+        "banUser": "Error baneando usuario",
+        "unbanUser": "Error desbaneando usuario",
+        "login": "Error iniciando sesion",
+        "logout": "Error cerrando sesion",
+        "register": "Error creando usuario",
+        "forgotPassword": "Error enviando correo",
+        "resetPassword": "Error restableciendo contraseña",
+        "unBlockedIp": "Error desbloqueando IP",
+        "blockedIp": "Error bloqueando IP"
+      },
+      "unauthorize": "No tienes permisos para realizar esta accion",
+      "errorServer": "Error en el servidor"
+    },
+    "blockedIps": {
+      "title": "IPs bloqueadas",
+      "subtitle": "Lista de IPs bloqueadas",
+      "noData": "No hay datos disponibles",
+      "columnsText": "Columnas",
+      "filterText": "Filtrar..."
+    },
+    "blockedIp": {
+      "buttonOpenModal": "Bloquear IP",
+      "ip": "IP",
+      "reason": "Razon",
+      "blockedButton": "Bloquear"
+    },
+    "auditTrails": {
+      "title": "Auditorias",
+      "subtitle": "Lista de auditorias",
+      "noData": "No hay datos disponibles",
+      "columnsText": "Columnas",
+      "filterText": "Filtrar..."
+    },
+    "blocked": {
+      "buttonDelete": "Desbloquear"
+    }
+  }
+}

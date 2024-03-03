@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  created_user User @relation(fields: [created_by], references: [id])
+  created_by   Int  @db.Integer()
+
+  @@map("tasks")
+}
+
+model User {
+  id                 Int     @id @default(autoincrement())
+  email              String  @unique
+  password           String
+  name               String
+  avatar             String?
+  username           String
+  lastname           String
+  blocked            Boolean @default(false)
+  role               Role    @relation(fields: [role_id], references: [id])
+  role_id            Int     @db.Integer()
+  notification_token String?
+
+  tasks Task[]
+
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt()
+
+  @@map("users")
+}
+
+model Role {
+  id         Int       @unique @default(autoincrement())
+  name       String    @db.VarChar()
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt()
+  deleted_at DateTime? @db.Timestamp()
+
+  Permission Permission[]
+  User       User[]
+
+  @@map("roles")
+}
+
+model Permission {
+  id         Int     @unique @default(autoincrement())
+  role       Role    @relation(fields: [role_id], references: [id])
+  role_id    Int     @db.Integer()
+  action     String  @db.VarChar()
+  subject    String  @db.VarChar()
+  inverted   Boolean @default(false)
+  conditions Json?   @db.JsonB()
+  reason     String? @db.Text()
+
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt()
+  deleted_at DateTime? @db.Timestamp()
+
+  @@map("permissions")
+}
+
+model Audit {
+  id        Int      @id @default(autoincrement())
+  ipAddress String
+  timestamp DateTime @default(now())
+  method    String
+  path      String
+  userId    Int?
+
+  @@map("audits")
+}
+
+model BlockedIp {
+  id     Int    @id @default(autoincrement())
+  ip     String
+  reason String
+
+  createdAt DateTime @default(now())
+
+  @@map("blocked_ips")
+}
