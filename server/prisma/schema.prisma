@@ -94,3 +94,13 @@ model BlockedIp {
 
   @@map("blocked_ips")
 }
+
+model CronJob {
+  id        Int      @id @default(autoincrement())
+  name      String
+  status    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("cron_jobs")
+}

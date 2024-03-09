@@ -1,15 +1,19 @@
-import React from 'react';
-import { View, TextInput, Alert } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
-import ThemeView from '@/components/screen';
-import Typography from '@/components/typography';
-import ThemeButton from '@/components/button';
-import api from '@/libs/api';
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import { View, TextInput } from "react-native";
+import Toast from "react-native-toast-message";
+
+import ThemeButton from "@/components/button";
+import ThemeView from "@/components/screen";
+import Typography from "@/components/typography";
+import { useLocalization } from "@/contexts/locale-provider";
+import api from "@/libs/api";
 
 const ForgotPasswordScreen: React.FC = () => {
+  const { t } = useLocalization();
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      email: '',
+      email: "",
     },
   });
   const onSubmit = async (values) => {
@@ -18,12 +22,15 @@ const ForgotPasswordScreen: React.FC = () => {
     }).request;
 
     if (response.status === 201) {
-      Alert.alert(
-        'Email enviado',
-        'Revisa tu correo para restablecer tu contraseña',
-      );
+      Toast.show({
+        type: "success",
+        text1: t("toast.success.forgotPassword"),
+      });
     } else {
-      Alert.alert('Error', 'Ocurrió un error al enviar el correo');
+      Toast.show({
+        type: "error",
+        text1: t("toast.error.forgotPassword"),
+      });
     }
   };
 
@@ -31,7 +38,7 @@ const ForgotPasswordScreen: React.FC = () => {
     <ThemeView>
       <View className="flex-col justify-between w-full h-full pt-10">
         <View className="flex-col justify-between space-y-5">
-          <Typography variant="h2" text="Recuperar contraseña" />
+          <Typography variant="h2" text={t("forgotPassword.title")} />
           <View>
             <Controller
               control={control}
@@ -40,7 +47,7 @@ const ForgotPasswordScreen: React.FC = () => {
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <View>
-                  <Typography variant="p" text="Email" />
+                  <Typography variant="p" text={t("field.email")} />
                   <TextInput
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                     placeholder="Email"
@@ -55,7 +62,10 @@ const ForgotPasswordScreen: React.FC = () => {
           </View>
         </View>
         <View>
-          <ThemeButton onPress={handleSubmit(onSubmit)} text="Enviar correo" />
+          <ThemeButton
+            onPress={handleSubmit(onSubmit)}
+            text={t("forgotPassword.send")}
+          />
         </View>
       </View>
     </ThemeView>

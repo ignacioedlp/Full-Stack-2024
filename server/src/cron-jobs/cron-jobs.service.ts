@@ -12,6 +12,13 @@ export class CronJobsServices {
 
   @Cron('* 12 * * *')
   async dailyGoodMorning() {
+    const cronJob = await this.prisma.cronJob.create({
+      data: {
+        name: 'Daily Good Morning',
+        status: 'In progress',
+      },
+    });
+
     const usersWithToken = await this.prisma.user.findMany({
       select: {
         notification_token: true,
@@ -27,6 +34,15 @@ export class CronJobsServices {
       title: 'Good Morning',
       description: 'Have a great day!',
       tokens: usersWithToken.map((user) => user.notification_token),
+    });
+
+    await this.prisma.cronJob.update({
+      where: {
+        id: cronJob.id,
+      },
+      data: {
+        status: 'Completed',
+      },
     });
   }
 

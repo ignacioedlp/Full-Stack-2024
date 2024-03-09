@@ -21,14 +21,7 @@ import { NavBar } from "@/components/navbar";
 import { useAuth } from "@/contexts/auth-provider";
 import { useTranslation } from "react-i18next";
 import Typography from "@/components/typography";
-
-type User = {
-  name: string;
-  lastname: string;
-  email: string;
-  avatar: string | null;
-  username: string;
-};
+import { User } from "@/lib/types";
 
 const formSchema = z.object({
   lastname: z.string(),

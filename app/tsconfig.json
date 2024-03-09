@@ -6,5 +6,5 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "RouteNavigator.js"]
+  "include": ["**/*.ts", "**/*.tsx", "RouteNavigator.js", "src/libs/i18n.ts"]
 }

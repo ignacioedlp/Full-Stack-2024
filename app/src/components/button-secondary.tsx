@@ -1,7 +1,8 @@
-import { TouchableOpacity, Text } from 'react-native';
-import { styled } from 'nativewind';
-import { cn } from '@/libs/utils';
-import React from 'react';
+import { styled } from "nativewind";
+import React from "react";
+import { TouchableOpacity, Text } from "react-native";
+
+import { cn } from "@/libs/utils";
 
 const StyledButton = styled(TouchableOpacity);
 
@@ -17,14 +18,14 @@ const ThemeSecondaryButton = ({
   return (
     <StyledButton
       className={cn(
-        'dark:bg-black bg-white flex items-center justify-center w-full py-2 rounded-lg border border-input',
+        "dark:bg-black bg-white flex items-center justify-center w-full py-2 rounded-lg border border-input",
         className,
       )}
       onPress={onPress}
     >
       <Text
         className={cn(
-          'leading-7 [&:not(:first-child)]:mt-6 dark:text-white text-black',
+          "leading-7 [&:not(:first-child)]:mt-6 dark:text-white text-black",
           className,
         )}
       >

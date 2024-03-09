@@ -1,7 +1,8 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import Profile from '@/screens/profile/profile';
-import Setting from '@/screens/profile/setting';
+import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
+
+import Profile from "@/screens/profile/profile";
+import Setting from "@/screens/profile/setting";
 
 const Stack = createStackNavigator();
 

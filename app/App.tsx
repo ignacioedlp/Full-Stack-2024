@@ -1,8 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
-import * as Notifications from 'expo-notifications';
-import Root from '@/routes/root';
-import { AuthProvider } from '@/contexts/auth-provider';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
+import * as Notifications from "expo-notifications";
+import React, { useEffect, useState, useRef } from "react";
+import "react-native-gesture-handler";
+import "react-native-reanimated";
+import Toast from "react-native-toast-message";
+
+import { toastConfig } from "@/components/toast-config";
+import { AuthProvider } from "@/contexts/auth-provider";
+import { LocalizationProvider } from "@/contexts/locale-provider";
+import Root from "@/routes/root";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -39,10 +45,13 @@ export default function App() {
   }, []);
 
   return (
-    <NavigationContainer>
-      <AuthProvider>
-        <Root />
-      </AuthProvider>
-    </NavigationContainer>
+    <LocalizationProvider>
+      <NavigationContainer>
+        <AuthProvider>
+          <Root />
+          <Toast topOffset={60} config={toastConfig} />
+        </AuthProvider>
+      </NavigationContainer>
+    </LocalizationProvider>
   );
 }

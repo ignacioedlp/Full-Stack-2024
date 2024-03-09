@@ -1,7 +1,8 @@
-import { cn } from '@/libs/utils';
-import { Text, View } from 'react-native';
-import { styled } from 'nativewind';
-import React from 'react';
+import { styled } from "nativewind";
+import React from "react";
+import { Text, View } from "react-native";
+
+import { cn } from "@/libs/utils";
 const StyledText = styled(Text);
 
 const TypographyH1 = ({
@@ -14,7 +15,7 @@ const TypographyH1 = ({
   return (
     <StyledText
       className={cn(
-        'text-4xl font-extrabold tracking-tight scroll-m-20 lg:text-5xl dark:text-white',
+        "text-4xl font-extrabold tracking-tight scroll-m-20 lg:text-5xl dark:text-white",
         className,
       )}
     >
@@ -33,7 +34,7 @@ const TypographyH2 = ({
   return (
     <StyledText
       className={cn(
-        'pb-2 text-3xl font-semibold tracking-tight border-b scroll-m-20 first:mt-0 dark:text-white',
+        "pb-2 text-3xl font-semibold tracking-tight border-b scroll-m-20 first:mt-0 dark:text-white",
         className,
       )}
     >
@@ -52,7 +53,7 @@ const TypographyH3 = ({
   return (
     <StyledText
       className={cn(
-        'text-2xl font-semibold tracking-tight scroll-m-20 dark:text-white',
+        "text-2xl font-semibold tracking-tight scroll-m-20 dark:text-white",
         className,
       )}
     >
@@ -71,7 +72,7 @@ const TypographyH4 = ({
   return (
     <StyledText
       className={cn(
-        'text-xl font-semibold tracking-tight scroll-m-20 dark:text-white',
+        "text-xl font-semibold tracking-tight scroll-m-20 dark:text-white",
         className,
       )}
     >
@@ -90,7 +91,7 @@ const TypographyP = ({
   return (
     <StyledText
       className={cn(
-        'leading-7 [&:not(:first-child)]:mt-6 dark:text-white',
+        "leading-7 [&:not(:first-child)]:mt-6 dark:text-white",
         className,
       )}
     >
@@ -105,16 +106,16 @@ const Typography = ({
   className,
 }: {
   text: string;
-  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'p';
+  variant: "h1" | "h2" | "h3" | "h4" | "p";
   className?: string;
 }) => {
   return (
     <View>
-      {variant === 'h1' && <TypographyH1 text={text} className={className} />}
-      {variant === 'h2' && <TypographyH2 text={text} className={className} />}
-      {variant === 'h3' && <TypographyH3 text={text} className={className} />}
-      {variant === 'h4' && <TypographyH4 text={text} className={className} />}
-      {variant === 'p' && <TypographyP text={text} className={className} />}
+      {variant === "h1" && <TypographyH1 text={text} className={className} />}
+      {variant === "h2" && <TypographyH2 text={text} className={className} />}
+      {variant === "h3" && <TypographyH3 text={text} className={className} />}
+      {variant === "h4" && <TypographyH4 text={text} className={className} />}
+      {variant === "p" && <TypographyP text={text} className={className} />}
     </View>
   );
 };

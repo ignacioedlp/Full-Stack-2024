@@ -1,40 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import * as LocalAuthentication from 'expo-local-authentication';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import api from '@/libs/api';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
+import * as LocalAuthentication from "expo-local-authentication";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
-type User = {
-  email: string;
-  sub: number;
-  role: string;
-  name: string;
-  avatar: string;
-};
-
-type BackendTokens = {
-  accessToken: string;
-  refreshToken: string;
-  expiresIn: number;
-};
-
-type LoginResponse = {
-  data: {
-    backendTokens: BackendTokens;
-    user: User;
-  };
-};
-
-type LoginData = {
-  email: string;
-  password: string;
-};
-
-type AuthContextType = {
-  user: User | null;
-  loginWithApi: (userData: LoginData) => void;
-  logout: () => void;
-  backendTokens: BackendTokens | null;
-};
+import api from "@/libs/api";
+import { AuthContextType, LoginData, LoginResponse, User } from "@/libs/types";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -42,8 +12,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
+  const navigation = useNavigation();
   const [backendTokens, setBackendTokens] = useState<
-    LoginResponse['data']['backendTokens'] | null
+    LoginResponse["data"]["backendTokens"] | null
   >(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isBiometricSupported, setIsBiometricSupported] = useState(false);
@@ -56,11 +27,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     setUser(response.data.data.user);
     setBackendTokens(response.data.data.backendTokens);
     await AsyncStorage.setItem(
-      'userData',
+      "userData",
       JSON.stringify(response.data.data.user),
     );
     await AsyncStorage.setItem(
-      'backendTokens',
+      "backendTokens",
       JSON.stringify(response.data.data.backendTokens),
     );
   };
@@ -68,21 +39,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const logout = async () => {
     setUser(null);
     setBackendTokens(null);
-    await AsyncStorage.removeItem('userData');
-    await AsyncStorage.removeItem('backendTokens');
+    await AsyncStorage.removeItem("userData");
+    await AsyncStorage.removeItem("backendTokens");
+    (navigation as any).navigate("Login");
   };
 
   const checkAuth = async () => {
-    const userDataString = await AsyncStorage.getItem('userData');
+    const userDataString = await AsyncStorage.getItem("userData");
     if (userDataString) {
       const auth = LocalAuthentication.authenticateAsync({
-        promptMessage: 'Iniciar sesión con biometría',
+        promptMessage: "Iniciar sesión con biometría",
       });
 
       auth.then(async (response) => {
         if (response.success) {
           const userData: User = JSON.parse(userDataString);
-          const backendTokensData = await AsyncStorage.getItem('backendTokens');
+          const backendTokensData = await AsyncStorage.getItem("backendTokens");
           setUser(userData);
           setBackendTokens(JSON.parse(backendTokensData!));
         }
@@ -94,6 +66,23 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     const supported = await LocalAuthentication.hasHardwareAsync();
     setIsBiometricSupported(supported);
   };
+
+  // Check if token is valid
+  useEffect(() => {
+    const verify = async () => {
+      if (backendTokens) {
+        try {
+          if (backendTokens.expiresIn < Date.now()) {
+            logout();
+          }
+        } catch (error) {
+          console.error("Error verifying token:", error);
+          logout();
+        }
+      }
+    };
+    verify();
+  }, [backendTokens]);
 
   useEffect(() => {
     checkBiometric();
@@ -110,7 +99,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useAuth debe ser utilizado dentro de un AuthProvider');
+    throw new Error("useAuth debe ser utilizado dentro de un AuthProvider");
   }
   return context;
 };

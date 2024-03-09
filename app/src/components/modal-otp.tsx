@@ -1,23 +1,25 @@
-import { StyleSheet, View, Modal, Dimensions, TextInput } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import { useNavigation } from "@react-navigation/native";
+import LottieView from "lottie-react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { StyleSheet, View, Modal, Dimensions, TextInput } from "react-native";
 
-// modules
-import { useNavigation } from '@react-navigation/native';
-import Typography from './typography';
-import ThemeButton from './button';
-import api from '@/libs/api';
-import LottieView from 'lottie-react-native';
+import ThemeButton from "./button";
+import Typography from "./typography";
+
+import { useLocalization } from "@/contexts/locale-provider";
+import api from "@/libs/api";
 
 const ModalOtp = ({ token, visible }: { token: string; visible: boolean }) => {
-  const [otp, setOtp] = useState(['', '', '', '']);
+  const [otp, setOtp] = useState(["", "", "", ""]);
   const inputs = useRef([]);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [isActivated, setIsActivated] = useState(false);
   const animation = useRef(null);
   const navigator = useNavigation();
+  const { t } = useLocalization();
 
   useEffect(() => {
-    if (otp.every((digit) => digit !== '')) {
+    if (otp.every((digit) => digit !== "")) {
       setIsButtonDisabled(false);
     } else {
       setIsButtonDisabled(true);
@@ -41,14 +43,14 @@ const ModalOtp = ({ token, visible }: { token: string; visible: boolean }) => {
   };
 
   const handleOtpSubmit = () => {
-    console.log(otp.join(''));
+    console.log(otp.join(""));
   };
 
   const handleButtonPress = async () => {
     const response = await api.auth.activateAccount({
       userAuthToken: token,
       data: {
-        activationCode: otp.join(''),
+        activationCode: otp.join(""),
       },
     }).request;
 
@@ -56,22 +58,22 @@ const ModalOtp = ({ token, visible }: { token: string; visible: boolean }) => {
       setIsActivated(true);
       animation.current.play();
       setTimeout(() => {
-        (navigator as any).navigate('Login');
+        (navigator as any).navigate("Login");
       }, 2000);
     } else {
-      setOtp(['', '', '', '']);
+      setOtp(["", "", "", ""]);
     }
   };
 
   return (
-    <Modal animationType="fade" transparent={true} visible={visible}>
+    <Modal animationType="fade" transparent visible={visible}>
       <View style={styles.container}>
         <View
           className="flex-col items-center justify-between py-10 space-y-8"
           style={styles.modalStyle}
         >
           <View>
-            <Typography variant="h4" text="Verifica tu correo!" />
+            <Typography variant="h4" text={t("signUp.activateTitle")} />
           </View>
           <View className="flex flex-row">
             {otp.map((digit, index) => (
@@ -89,7 +91,7 @@ const ModalOtp = ({ token, visible }: { token: string; visible: boolean }) => {
                   index === otp.length - 1 ? handleOtpSubmit : undefined
                 }
                 onKeyPress={({ nativeEvent: { key } }) =>
-                  key === 'Backspace' ? handleBackspacePress(index) : null
+                  key === "Backspace" ? handleBackspacePress(index) : null
                 }
               />
             ))}
@@ -99,12 +101,12 @@ const ModalOtp = ({ token, visible }: { token: string; visible: boolean }) => {
               ref={animation}
               style={styles.lottie}
               source={{
-                uri: 'https://lottie.host/6d633fe8-64ac-463d-84d8-a60a7778b864/3EprNdDcxW.json',
+                uri: "https://lottie.host/6d633fe8-64ac-463d-84d8-a60a7778b864/3EprNdDcxW.json",
               }}
             />
           ) : (
             <ThemeButton
-              text="Activar cuenta"
+              text={t("signUp.activate")}
               onPress={handleButtonPress}
               disabled={isButtonDisabled}
             />
@@ -118,20 +120,20 @@ const ModalOtp = ({ token, visible }: { token: string; visible: boolean }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.5)",
   },
   box: {
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: "black",
     width: 47,
     height: 46,
     margin: 8,
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 20,
     borderRadius: 5,
-    borderStyle: 'solid',
+    borderStyle: "solid",
     padding: 5,
   },
   lottie: {
@@ -139,10 +141,10 @@ const styles = StyleSheet.create({
     height: 150,
   },
   modalStyle: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 20,
     borderRadius: 25,
-    width: Dimensions.get('window').width / 1.5,
+    width: Dimensions.get("window").width / 1.5,
   },
 });
 

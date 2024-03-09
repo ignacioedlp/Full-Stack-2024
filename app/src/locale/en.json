@@ -1,0 +1,87 @@
+{
+  "login": {
+    "title": "Login",
+    "login": "Login",
+    "signUp": "Create a new account",
+    "forgotPassword": "Forgot password?"
+  },
+  "field": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "name": "Name",
+    "username": "Username",
+    "lastname": "Lastname"
+  },
+  "forgotPassword": {
+    "title": "Forgot password?",
+    "send": "Recover password"
+  },
+  "signUp": {
+    "title": "Create a new account",
+    "signUp": "Create account",
+    "activateTitle": "Verify your email",
+    "activate": "Activate",
+    "login": "I have an account"
+  },
+  "navbar": {
+    "home": "Home",
+    "profile": "Profile"
+  },
+  "home": {
+    "title": "Home"
+  },
+  "profile": {
+    "title": "Profile",
+    "settings": "Settings",
+    "changePhoto": "Change Photo",
+    "takePhoto": "Take a photo",
+    "choosePhoto": "Choose Photo",
+    "logout": "Logout"
+  },
+  "settings": {
+    "title": "Settings",
+    "changePassword": "Change password",
+    "changeLenguage": "Change lenguage",
+    "notifications": "Push notifications"
+  },
+  "toast": {
+    "success": {
+      "updateAvatar": "Avatar updated successfully",
+      "updateProfile": "Profile updated successfully",
+      "updateRole": "Role updated successfully",
+      "deleteRole": "Role deleted successfully",
+      "createRole": "Role created successfully",
+      "updateUser": "User updated successfully",
+      "banUser": "User banned successfully",
+      "unbanUser": "User unbaned successfully",
+      "preRegister": "A code was sent to your email valid for 5 minutes!",
+      "login": "Login successful and redirecting...",
+      "logout": "Logout successful and redirecting...",
+      "register": "User created successfully and redirecting...",
+      "forgotPassword": "Email sent successfully",
+      "resetPassword": "Password reset successfully and redirecting...",
+      "unBlockedIp": "IP unblocked successfully",
+      "blockedIp": "IP blocked successfully"
+    },
+    "error": {
+      "updateAvatar": "Error updating avatar",
+      "updateProfile": "Error updating profile",
+      "updateRole": "Error updating role",
+      "deleteRole": "Error deleting role",
+      "createRole": "Error creating role",
+      "updateUser": "Error updating user",
+      "banUser": "Error banning user",
+      "unbanUser": "Error unbaning user",
+      "login": "Error logging in",
+      "logout": "Error logging out",
+      "register": "Error creating user",
+      "forgotPassword": "Error sending email",
+      "resetPassword": "Error resetting password",
+      "unBlockedIp": "Error unblocking IP",
+      "blockedIp": "Error blocking IP"
+    },
+    "unauthorize": "You are not authorized to access this page",
+    "errorServer": "Error connecting to the server"
+  }
+}

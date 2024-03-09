@@ -1,37 +1,44 @@
-import React, { useState } from 'react';
-import { View, TextInput, Alert } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
-import ThemeView from '@/components/screen';
-import Typography from '@/components/typography';
-import ThemeButton from '@/components/button';
-import { useNavigation } from '@react-navigation/native';
-import ThemeSecondaryButton from '@/components/secondary-button';
-import ModalOtp from '@/components/modal-otp';
-import api from '@/libs/api';
+import { useNavigation } from "@react-navigation/native";
+import React, { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { View, TextInput } from "react-native";
+import Toast from "react-native-toast-message";
+
+import ThemeButton from "@/components/button";
+import ModalOtp from "@/components/modal-otp";
+import ThemeView from "@/components/screen";
+import ThemeSecondaryButton from "@/components/button-secondary";
+import Typography from "@/components/typography";
+import { useLocalization } from "@/contexts/locale-provider";
+import api from "@/libs/api";
 
 const SignUpScreen: React.FC = () => {
   const navigation = useNavigation();
-  const [activationToken, setActivationToken] = useState('');
+  const [activationToken, setActivationToken] = useState("");
+  const { t } = useLocalization();
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      email: '',
-      password: '',
-      lastname: '',
-      name: '',
-      password_confirmation: '',
-      username: '',
+      email: "",
+      password: "",
+      lastname: "",
+      name: "",
+      password_confirmation: "",
+      username: "",
     },
   });
   const onSubmit = async (data) => {
     const response = await api.auth.register({
-      data: data,
+      data,
     }).request;
 
     if (response.status === 201) {
       setActivationToken(response.data.activationToken);
     } else {
-      Alert.alert('Error', 'Ocurrió un error al crear la cuenta');
+      Toast.show({
+        type: "error",
+        text1: t("toast.error.register"),
+      });
     }
   };
 
@@ -39,7 +46,7 @@ const SignUpScreen: React.FC = () => {
     <ThemeView>
       <View className="flex-col justify-between w-full h-full pt-5">
         <View className="flex-col justify-between space-y-5">
-          <Typography variant="h1" text="Crea tu cuenta!" />
+          <Typography variant="h1" text={t("signUp.title")} />
           <View>
             <Controller
               control={control}
@@ -48,7 +55,7 @@ const SignUpScreen: React.FC = () => {
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <View>
-                  <Typography variant="p" text="Name" />
+                  <Typography variant="p" text={t("field.name")} />
                   <TextInput
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                     placeholder="Firstname"
@@ -69,7 +76,7 @@ const SignUpScreen: React.FC = () => {
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <View>
-                  <Typography variant="p" text="Lastname" />
+                  <Typography variant="p" text={t("field.lastname")} />
                   <TextInput
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                     placeholder="Lastname"
@@ -90,7 +97,7 @@ const SignUpScreen: React.FC = () => {
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <View>
-                  <Typography variant="p" text="Email" />
+                  <Typography variant="p" text={t("field.email")} />
                   <TextInput
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                     placeholder="Email"
@@ -111,7 +118,7 @@ const SignUpScreen: React.FC = () => {
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <View>
-                  <Typography variant="p" text="Username" />
+                  <Typography variant="p" text={t("field.username")} />
                   <TextInput
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                     placeholder="Username"
@@ -132,14 +139,14 @@ const SignUpScreen: React.FC = () => {
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <View>
-                  <Typography variant="p" text="Password" />
+                  <Typography variant="p" text={t("field.password")} />
                   <TextInput
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                     placeholder="Password"
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
-                    secureTextEntry={true}
+                    secureTextEntry
                   />
                 </View>
               )}
@@ -154,14 +161,14 @@ const SignUpScreen: React.FC = () => {
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <View>
-                  <Typography variant="p" text="Repeat password" />
+                  <Typography variant="p" text={t("field.confirmPassword")} />
                   <TextInput
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                     placeholder="Password"
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
-                    secureTextEntry={true}
+                    secureTextEntry
                   />
                 </View>
               )}
@@ -173,13 +180,13 @@ const SignUpScreen: React.FC = () => {
           <View>
             <ThemeButton
               onPress={handleSubmit(onSubmit)}
-              text="Crear mi cuenta"
+              text={t("signUp.signUp")}
             />
           </View>
           <View>
             <ThemeSecondaryButton
-              onPress={() => (navigation as any).navigate('Login')}
-              text="Ya tengo una cuenta"
+              onPress={() => (navigation as any).navigate("Login")}
+              text={t("signUp.login")}
             />
           </View>
         </View>

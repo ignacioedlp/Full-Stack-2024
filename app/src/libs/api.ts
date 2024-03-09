@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
 
 interface RequestBuilderOptions {
   method: string;
@@ -20,7 +20,7 @@ const instance: AxiosInstance = axios.create({
   baseURL: process.env.EXPO_PUBLIC_API_URL,
   maxRedirects: 0,
   headers: {
-    Accept: 'application/json',
+    Accept: "application/json",
   },
 });
 
@@ -47,7 +47,7 @@ const requestBuilder = ({
   data,
   params,
   customHeader = {},
-  responseType = 'json',
+  responseType = "json",
 }: RequestBuilderOptions): RequestBuilderResult => {
   // Generate the cancel token
   const cancelTokenSource = axios.CancelToken.source();
@@ -88,31 +88,31 @@ export default {
   auth: {
     login: ({ data }: { data: any }) =>
       requestBuilder({
-        method: 'POST',
-        url: '/auth/login',
+        method: "POST",
+        url: "/auth/login",
         data,
-        responseType: 'json',
+        responseType: "json",
       }),
     register: ({ data }: { data: any }) =>
       requestBuilder({
-        method: 'POST',
-        url: '/auth/signup',
+        method: "POST",
+        url: "/auth/signup",
         data,
-        responseType: 'json',
+        responseType: "json",
       }),
     logout: ({ userAuthToken }: { userAuthToken: string }) =>
       requestBuilder({
-        method: 'POST',
-        url: '/auth/logout',
+        method: "POST",
+        url: "/auth/logout",
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
     forgotPassword: ({ data }: { data: any }) =>
       requestBuilder({
-        method: 'POST',
-        url: '/auth/forgot-password',
+        method: "POST",
+        url: "/auth/forgot-password",
         data,
-        responseType: 'json',
+        responseType: "json",
       }),
     resetPassword: ({
       data,
@@ -122,11 +122,11 @@ export default {
       userAuthToken: string;
     }) =>
       requestBuilder({
-        method: 'POST',
-        url: '/auth/reset-password',
+        method: "POST",
+        url: "/auth/reset-password",
         data,
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
     activateAccount: ({
       data,
@@ -136,27 +136,27 @@ export default {
       userAuthToken: string;
     }) =>
       requestBuilder({
-        method: 'POST',
-        url: '/auth/activate',
+        method: "POST",
+        url: "/auth/activate",
         data,
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
     refresh: ({ userAuthToken }: { userAuthToken: string }) =>
       requestBuilder({
-        method: 'GET',
-        url: '/auth/refresh',
+        method: "GET",
+        url: "/auth/refresh",
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
   },
   users: {
     getUser: ({ userAuthToken, id }: { userAuthToken: string; id: string }) =>
       requestBuilder({
-        method: 'GET',
+        method: "GET",
         url: `/users/${id}`,
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
     updateUser: ({
       userAuthToken,
@@ -168,18 +168,18 @@ export default {
       id: string;
     }) =>
       requestBuilder({
-        method: 'PATCH',
+        method: "PATCH",
         url: `/users/${id}`,
         userAuthToken,
         data,
-        responseType: 'json',
+        responseType: "json",
       }),
     getAllUsers: ({ userAuthToken }: { userAuthToken: string }) =>
       requestBuilder({
-        method: 'GET',
-        url: '/users',
+        method: "GET",
+        url: "/users",
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
     blockUsers: ({
       userAuthToken,
@@ -191,20 +191,20 @@ export default {
       data: any;
     }) =>
       requestBuilder({
-        method: 'POST',
+        method: "POST",
         url: `/users/${id}`,
         userAuthToken,
         data,
-        responseType: 'json',
+        responseType: "json",
       }),
   },
   profile: {
     getProfile: ({ userAuthToken }: { userAuthToken: string }) =>
       requestBuilder({
-        method: 'GET',
-        url: '/profile',
+        method: "GET",
+        url: "/profile",
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
     updateProfile: ({
       userAuthToken,
@@ -214,11 +214,11 @@ export default {
       data: any;
     }) =>
       requestBuilder({
-        method: 'PATCH',
-        url: '/profile',
+        method: "PATCH",
+        url: "/profile",
         userAuthToken,
         data,
-        responseType: 'json',
+        responseType: "json",
       }),
     updateAvatar: ({
       userAuthToken,
@@ -228,21 +228,21 @@ export default {
       data: any;
     }) =>
       requestBuilder({
-        method: 'PATCH',
+        method: "PATCH",
         url: `/profile/update-avatar`,
         userAuthToken,
         data,
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
-        responseType: 'json',
+        responseType: "json",
       }),
     deleteProfile: ({ userAuthToken }: { userAuthToken: string }) =>
       requestBuilder({
-        method: 'DELETE',
-        url: '/profile',
+        method: "DELETE",
+        url: "/profile",
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
     setNotificationToken: ({
       userAuthToken,
@@ -252,27 +252,27 @@ export default {
       token: string;
     }) =>
       requestBuilder({
-        method: 'POST',
-        url: '/profile/set-notification',
+        method: "POST",
+        url: "/profile/set-notification",
         userAuthToken,
         data: { notificationToken: token },
-        responseType: 'json',
+        responseType: "json",
       }),
   },
   roles: {
     getRoles: ({ userAuthToken }: { userAuthToken: string }) =>
       requestBuilder({
-        method: 'GET',
-        url: '/roles',
+        method: "GET",
+        url: "/roles",
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
     getRole: ({ userAuthToken, id }: { userAuthToken: string; id: string }) =>
       requestBuilder({
-        method: 'GET',
+        method: "GET",
         url: `/roles/${id}`,
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
     createRole: ({
       userAuthToken,
@@ -282,10 +282,10 @@ export default {
       data: any;
     }) =>
       requestBuilder({
-        method: 'POST',
-        url: '/roles',
+        method: "POST",
+        url: "/roles",
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
         data,
       }),
     updateRole: ({
@@ -298,11 +298,11 @@ export default {
       id: string;
     }) =>
       requestBuilder({
-        method: 'PATCH',
+        method: "PATCH",
         url: `/roles/${id}`,
         userAuthToken,
         data,
-        responseType: 'json',
+        responseType: "json",
       }),
     deleteRole: ({
       userAuthToken,
@@ -312,10 +312,10 @@ export default {
       id: string;
     }) =>
       requestBuilder({
-        method: 'DELETE',
+        method: "DELETE",
         url: `/roles/${id}`,
         userAuthToken,
-        responseType: 'json',
+        responseType: "json",
       }),
   },
 };

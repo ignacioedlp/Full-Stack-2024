@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -28,7 +30,21 @@
     "experiments": {
       "tsconfigPaths": true
     },
-    "plugins": [["expo-notifications"]],
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/Inter-Medium.ttf"
+          ]
+        }
+      ],
+      [
+        "expo-notifications"
+      ],
+      "expo-localization",
+      "expo-build-properties"
+    ],
     "extra": {
       "eas": {
         "projectId": "8cb39e94-b17d-4b6d-9ad5-2f15aeadd7b6"

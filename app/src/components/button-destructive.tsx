@@ -6,7 +6,7 @@ import { cn } from "@/libs/utils";
 
 const StyledButton = styled(TouchableOpacity);
 
-const ThemeButton = ({
+const ThemeButtonDestructive = ({
   onPress,
   className,
   text,
@@ -20,7 +20,7 @@ const ThemeButton = ({
   return (
     <StyledButton
       className={cn(
-        "dark:bg-white bg-black flex items-center justify-center w-full py-2 rounded-lg",
+        "bg-red-800 flex items-center justify-center w-full py-2 rounded-lg",
         `${disabled ? "opacity-50" : ""}`,
         className,
       )}
@@ -29,7 +29,7 @@ const ThemeButton = ({
     >
       <Text
         className={cn(
-          "leading-7 [&:not(:first-child)]:mt-6 dark:text-black text-white",
+          "leading-7 [&:not(:first-child)]:mt-6  text-white",
           className,
         )}
       >
@@ -39,4 +39,4 @@ const ThemeButton = ({
   );
 };
 
-export default ThemeButton;
+export default ThemeButtonDestructive;

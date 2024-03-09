@@ -1,0 +1,87 @@
+{
+  "login": {
+    "title": "Iniciar sesion",
+    "login": "Iniciar sesion",
+    "signUp": "Registrarse",
+    "forgotPassword": "Olvidaste tu contraseña?"
+  },
+  "field": {
+    "email": "Correo electronico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "name": "Nombre",
+    "username": "Nombre de usuario",
+    "lastname": "Apellido"
+  },
+  "forgotPassword": {
+    "title": "Olvidaste tu contraseña?",
+    "send": "Recuperar contraseña"
+  },
+  "signUp": {
+    "title": "Registrarse",
+    "signUp": "Registrarse",
+    "activateTitle": "Verifica tu correo!",
+    "activate": "Activar",
+    "login": "Ya tengo una cuenta"
+  },
+  "navbar": {
+    "home": "Inicio",
+    "profile": "Perfil"
+  },
+  "home": {
+    "title": "Inicio"
+  },
+  "profile": {
+    "title": "Perfil",
+    "settings": "Ajustes",
+    "changePhoto": "Cambiar foto",
+    "takePhoto": "Tomar foto",
+    "choosePhoto": "Elegir foto",
+    "logout": "Cerrar sesion"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "changePassword": "Cambiar contraseña",
+    "changeLenguage": "Cambiar idioma",
+    "notifications": "Notificaciones"
+  },
+  "toast": {
+    "success": {
+      "updateAvatar": "Imagen de perfil actualizada",
+      "updateProfile": "Perfil actualizado",
+      "updateRole": "Rol actualizado",
+      "deleteRole": "Rol eliminado",
+      "createRole": "Rol creado",
+      "updateUser": "Usuario actualizado",
+      "banUser": "Usuario baneado",
+      "unbanUser": "Usuario desbaneado",
+      "preRegister": "Se envio un codigo a tu email valido por 5 minutos!",
+      "login": "Inicio de sesion exitoso y redireccionando...",
+      "logout": "Cierre de sesion exitoso y redireccionando...",
+      "register": "Usuario creado exitosamente y redireccionando...",
+      "forgotPassword": "Correo enviado exitosamente y redireccionando...",
+      "resetPassword": "Contraseña restablecida exitosamente y redireccionando...",
+      "unBlockedIp": "IP desbloqueada",
+      "blockedIp": "IP bloqueada"
+    },
+    "error": {
+      "updateAvatar": "Error al actualizar imagen de perfil",
+      "updateProfile": "Error actualizando perfil",
+      "updateRole": "Error actualizando rol",
+      "deleteRole": "Error eliminando rol",
+      "createRole": "Error creando rol",
+      "updateUser": "Error actualizando usuario",
+      "banUser": "Error baneando usuario",
+      "unbanUser": "Error desbaneando usuario",
+      "login": "Error iniciando sesion",
+      "logout": "Error cerrando sesion",
+      "register": "Error creando usuario",
+      "forgotPassword": "Error enviando correo",
+      "resetPassword": "Error restableciendo contraseña",
+      "unBlockedIp": "Error desbloqueando IP",
+      "blockedIp": "Error bloqueando IP"
+    },
+    "unauthorize": "No tienes permisos para realizar esta accion",
+    "errorServer": "Error en el servidor"
+  }
+}
