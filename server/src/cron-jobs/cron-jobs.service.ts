@@ -10,7 +10,7 @@ export class CronJobsServices {
     private readonly notifications: NotificationsService,
   ) {}
 
-  @Cron('* 12 * * *')
+  @Cron('0 12 * * *')
   async dailyGoodMorning() {
     const cronJob = await this.prisma.cronJob.create({
       data: {
